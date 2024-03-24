@@ -1,24 +1,26 @@
 <template>
-    <div class="bar-graph-container">
+    <div class="bar-graph-wrapper">
       <h2 class="graph-title">Installation Trends Over Months</h2>
       <p class="graph-description"><strong>Visual representation of software installations over different months.</strong></p>
   
-      <div class="axes">
-        <!-- Bars -->
-        <div class="bar-graph">
-          <div
-            v-for="(item, index) in data"
-            :key="index"
-            class="bar"
-            @mouseover="showCount(item)"
-            @mouseleave="hideCount"
-          >
+      <div class="bar-graph-container">
+        <div class="axes">
+          <!-- Bars -->
+          <div class="bar-graph">
             <div
-              class="bar-fill"
-              :style="{ height: item.numInstalls * 3 + 'px', backgroundColor: barColors[index] }"
-            ></div>
-            <span class="bar-label"><strong>{{ item.month }}</strong></span>
-            <span class="bar-count" v-if="showBarCount && activeBarIndex === index"><strong>{{ item.numInstalls }}</strong></span>
+              v-for="(item, index) in data"
+              :key="index"
+              class="bar"
+              @mouseover="showCount(item)"
+              @mouseleave="hideCount"
+            >
+              <div
+                class="bar-fill"
+                :style="{ height: item.numInstalls * 3 + 'px', backgroundColor: barColors[index] }"
+              ></div>
+              <span class="bar-label"><strong>{{ item.month }}</strong></span>
+              <span class="bar-count" v-if="showBarCount && activeBarIndex === index"><strong>{{ item.numInstalls }}</strong></span>
+            </div>
           </div>
         </div>
       </div>
@@ -49,14 +51,12 @@
   </script>
   
   <style scoped>
-  .bar-graph-container {
-    text-align: center;
-    padding: 40px 20px;
-    margin-bottom: 40px; /* Added margin at the bottom */
+  .bar-graph-wrapper {
+    padding: 5%; /* Added bottom padding */
   }
   
   .graph-title {
-    font-size: 30px;
+    font-size: 35px;
     font-weight: bold;
     margin-bottom: 20px;
   }
@@ -65,6 +65,11 @@
     font-size: 20px;
     color: #666;
     margin-bottom: 20px;
+  }
+  
+  .bar-graph-container {
+    text-align: center;
+    padding: 10% 10% 15% 0;
   }
   
   .axes {
@@ -77,7 +82,7 @@
     display: flex;
     justify-content: space-around;
     align-items: flex-end;
-    width: calc(100% - 90px); /* Adjust for padding */
+    width: calc(100% - 100px); /* Adjust for padding */
     margin: 0 auto;
   }
   
@@ -87,7 +92,7 @@
   }
   
   .bar-fill {
-    width: 70%;
+    width: 80%;
     margin: 0 auto;
     margin-bottom: 5px;
     transition: height 0.5s ease-in-out;

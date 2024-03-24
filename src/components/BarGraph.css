@@ -1,0 +1,66 @@
+.bar-graph-wrapper {
+    padding: 5%; /* Added bottom padding */
+  }
+  
+  .graph-title {
+    font-size: 35px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .graph-description {
+    font-size: 20px;
+    color: #666;
+    margin-bottom: 20px;
+  }
+  
+  .bar-graph-container {
+    text-align: center;
+    padding: 10% 10% 15% 0;
+  }
+  
+  .axes {
+    display: flex;
+    align-items: flex-end;
+    position: relative;
+  }
+  
+  .bar-graph {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+    width: calc(100% - 100px); /* Adjust for padding */
+    margin: 0 auto;
+  }
+  
+  .bar {
+    position: relative;
+    flex-grow: 1;
+  }
+  
+  .bar-fill {
+    width: 80%;
+    margin: 0 auto;
+    margin-bottom: 5px;
+    transition: height 0.5s ease-in-out;
+  }
+  
+  .bar-label {
+    font-size: 14px;
+  }
+  
+  .bar-count {
+    position: absolute;
+    top: -20px; /* Adjust for better visibility */
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+    display: none;
+  }
+  
+  .bar:hover .bar-count {
+    display: block;
+  }
+  
